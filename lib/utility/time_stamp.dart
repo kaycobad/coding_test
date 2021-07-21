@@ -13,8 +13,10 @@ String readTimestamp(DateTime date) {
     time = diff.inHours.toString() + ' Hour(s) ago';
   } else if (diff.inDays > 0 && diff.inDays < 30) {
     time = diff.inDays.toString() + ' Day(s) ago';
-  } else {
+  } else if (diff.inDays > 29 && diff.inDays < 365) {
     time = (diff.inDays / 30).floor().toString() + ' Month(s) ago';
+  } else {
+    time = (diff.inDays / 365).floor().toString() + ' Year(s) ago';
   }
 
   return time;
