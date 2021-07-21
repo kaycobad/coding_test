@@ -11,10 +11,10 @@ String readTimestamp(DateTime date) {
     time = diff.inMinutes.toString() + ' Minute(s) ago';
   } else if (diff.inHours > 0 && diff.inHours < 24) {
     time = diff.inHours.toString() + ' Hour(s) ago';
-  } else if (diff.inDays > 0 && diff.inDays < 7) {
+  } else if (diff.inDays > 0 && diff.inDays < 30) {
     time = diff.inDays.toString() + ' Day(s) ago';
   } else {
-    time = (diff.inDays / 7).floor().toString() + ' Week(s) AGO';
+    time = (diff.inDays / 30).floor().toString() + ' Month(s) ago';
   }
 
   return time;
