@@ -110,19 +110,12 @@ class _ProductWidgetState extends State<ProductWidget> {
                       ),
                       SizedBox(height: 15),
                       CachedNetworkImage(
-                        height: 200,
+                        height: 220,
                         imageUrl: state.products[index].storyImage!,
-                        imageBuilder: (context, imageProvider) => Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: imageProvider,
-                              fit: BoxFit.cover,
-                              // colorFilter: ColorFilter.mode(
-                              //     Colors.red, BlendMode.colorBurn),
-                            ),
-                          ),
-                        ),
-                        placeholder: (context, url) => Center(
+                        progressIndicatorBuilder:
+                            (context, url, downloadProgress) => Center(
+                          // child: CircularProgressIndicator(
+                          //     value: downloadProgress.progress),
                           child: SizedBox(),
                         ),
                         errorWidget: (context, url, error) => Icon(Icons.error),
@@ -148,7 +141,7 @@ class _ProductWidgetState extends State<ProductWidget> {
                           Row(
                             children: [
                               Icon(
-                                Icons.filter_list,
+                                Icons.menu,
                               ),
                               Text(
                                 '  ${state.products[index].availableStock} Available stock',
